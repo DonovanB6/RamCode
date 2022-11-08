@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+  <mat-form-field>
+    <input
+    matInput
+    type="text"
+    formControlName="title"
+    placeholder="Question">
+    <mat-error *ngIf="form.get('title').invalid">Please enter a Question.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea
+    matInput
+    rows="1"
+    formControlName="content"
+    placeholder="Answer 1 (Correct Answer)">
+  </textarea>
+  <mat-error *ngIf="form.get('content').invalid">Please enter the answer properly.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea
+    matInput
+    rows="1"
+    formControlName="answer2"
+    placeholder="Answer 2">
+  </textarea>
+  <mat-error *ngIf="form.get('answer2').invalid">Please enter the answer properly.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea
+    matInput
+    rows="1"
+    formControlName="answer3"
+    placeholder="Answer 3">
+  </textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea
+    matInput
+    rows="1"
+    formControlName="answer4"
+    placeholder="Answer 4">
+  </textarea>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+   type="submit">Save Post</button>
+  </form>
+</mat-card>
+
