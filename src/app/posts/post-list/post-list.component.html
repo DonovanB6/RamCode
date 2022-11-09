@@ -9,11 +9,12 @@
     <p>{{'Answer 3: ' + post.answer3}} </p>
     <p>{{'Answer 4: ' + post.answer4}} </p>
     <mat-action-row *ngIf="userIsAuthenticated && userId === post.creator">
-      <a mat-button color="accent" [routerLink]="['/edit',post.id]">EDIT</a>
+      <a mat-button [routerLink]="['/edit',post.id]">EDIT</a>
       <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
 <mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
 *ngIf="posts.length > 0"></mat-paginator>
+<button mat-raised-button color="primary" [routerLink]="['/question']">Select Question</button>
 <p class="info-text mat-body-1" *ngIf="posts.length <= 0 && !isLoading">No posts added yet!</p>
