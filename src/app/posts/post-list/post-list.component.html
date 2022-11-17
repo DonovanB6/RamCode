@@ -16,5 +16,5 @@
 </mat-accordion>
 <mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
 *ngIf="posts.length > 0"></mat-paginator>
-<button mat-raised-button color="primary" [routerLink]="['/question']">Select Question</button>
+<button mat-raised-button *ngIf="userIsAuthenticated" color="primary" [routerLink]="['/question']">Select Question</button>
 <p class="info-text mat-body-1" *ngIf="posts.length <= 0 && !isLoading">No posts added yet!</p>

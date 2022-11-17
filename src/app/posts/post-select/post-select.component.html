@@ -1,13 +1,18 @@
-<label id="example-radio-group-label">Pick your favorite season</label>
+<label id="post-select-label">{{post?.title}}</label>
 <mat-radio-group
-  aria-labelledby="example-radio-group-label"
-  class="example-radio-group"
-  [(ngModel)]="favoriteSeason">
-  <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
-    {{season}}
+  aria-labelledby="post-select-label"
+  class="post-select-group"
+  [(ngModel)]="selectedAnswer"
+  *ngFor="let answer of answersF">
+  <mat-radio-button class="post-select-button" *ngIf="answer!=null || undefined" [value]="answer">
+
+    {{answer}}
+
   </mat-radio-button>
 </mat-radio-group>
-<div>Your favorite season is: {{favoriteSeason}}</div>
+<div>Your answer is: {{selectedAnswer}}</div>
+<button mat-raised-button (click)="checkAnswer(selectedAnswer)"color="primary">Check Answer</button>
+<div>This answer is: {{AnswerChecked}}  </div>
 
 
 
@@ -15,4 +20,4 @@
 
 
 
-<p>This is the post selection Page!</p>
+

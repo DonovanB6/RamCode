@@ -84,4 +84,8 @@ export class PostsService{
    .delete("http://localhost:3000/api/posts/"+ postId);
 
   }
+  getRandomPost(){
+    return this.http.get<{_id: string, title: string, content: string, answer2:string,answer3:string,answer4:string, creator: string}>(
+      "http://localhost:3000/api/question")
+  }
 }
