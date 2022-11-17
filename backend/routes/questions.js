@@ -5,7 +5,7 @@ const checkAuth = require('../middleware/check-auth');
 
 const router = express.Router();
 
-router.get("",  (req,res,next) => {
+router.get("", checkAuth, (req,res,next) => {
   Post.count().exec(function (err, count) {
 
     // Get a random entry
