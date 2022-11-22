@@ -8,10 +8,10 @@ const router = express.Router();
 router.get("", checkAuth, (req,res,next) => {
   Post.count().exec(function (err, count) {
 
-    // Get a random entry
+
     var random = Math.floor(Math.random() * count)
 
-    // Again query all users but only fetch one offset by our random #
+
     Post.findOne().skip(random).then(post => {
         if(post)
         {

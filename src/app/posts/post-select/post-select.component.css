@@ -11,5 +11,8 @@
 
 }
 div {
-  margin-top: 16px;
+  display: flex;
+  margin: 16px;
+
 }
+

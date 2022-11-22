@@ -3,16 +3,13 @@
   </span>
   <span class="spacer"></span>
   <ul>
-    <li *ngIf="userIsAuthenticated">
+    <li *ngIf="userIsAuthenticated && this.userRole == 'Teacher'">
       <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Question</a>
     </li>
     <li *ngIf="!userIsAuthenticated">
       <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
     </li>
-    <li *ngIf="!userIsAuthenticated">
-      <a mat-button routerLink="/signup" routerLinkActive="mat-accent">Signup</a>
-    </li>
-    <li *ngIf="userIsAuthenticated">
+    <li *ngIf="userIsAuthenticated && this.userRole == 'Teacher'">
       <a mat-button routerLink="/signup" routerLinkActive="mat-accent">Create Student Accounts</a>
     </li>
     <li *ngIf="userIsAuthenticated">

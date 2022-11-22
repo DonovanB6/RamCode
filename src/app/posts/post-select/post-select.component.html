@@ -11,7 +11,8 @@
   </mat-radio-button>
 </mat-radio-group>
 <div>Your answer is: {{selectedAnswer}}</div>
-<button mat-raised-button (click)="checkAnswer(selectedAnswer)"color="primary">Check Answer</button>
+    <button style= "margin: 16px;" mat-raised-button (click)="checkAnswer(selectedAnswer)"color="primary" id="checkButton" *ngIf="!rightAnswer">Check Answer</button>
+    <button mat-raised-button [routerLink]="''" *ngIf="rightAnswer" >Return to Home</button>
 <div>This answer is: {{AnswerChecked}}  </div>
 
 
