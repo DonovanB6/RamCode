@@ -1,7 +1,7 @@
-export interface Post {
+export interface Question {
   id: string;
   title: string;
-  content: string;
+  correct: string;
   answer2: string;
   answer3: string;
   answer4: string;

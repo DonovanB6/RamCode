@@ -1,10 +1,10 @@
-<label id="post-select-label">{{post?.title}}</label>
+<label id="question-select-label">{{question?.title}}</label>
 <mat-radio-group
-  aria-labelledby="post-select-label"
-  class="post-select-group"
+  aria-labelledby="question-select-label"
+  class="question-select-group"
   [(ngModel)]="selectedAnswer"
   *ngFor="let answer of answersF">
-  <mat-radio-button class="post-select-button" *ngIf="answer!=null || undefined" [value]="answer">
+  <mat-radio-button class="question-select-button" *ngIf="answer!=null || undefined" [value]="answer">
 
     {{answer}}
 

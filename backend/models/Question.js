@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const postSchema = mongoose.Schema({
+const questionSchema = mongoose.Schema({
   title: { type: String, required: true},
-  content: {type: String, required: true},
+  correct: {type: String, required: true},
   answer2: {type: String},
   answer3: {type: String},
   answer4: {type: String},
   creator: {type: mongoose.Schema.Types.ObjectId, ref: "User", required: true}
 });
 
-module.exports = mongoose.model('Post',postSchema);
+module.exports = mongoose.model('Questions',questionSchema);

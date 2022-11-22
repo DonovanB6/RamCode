@@ -1,0 +1,20 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="True" *ngIf="questions.length > 0 && !isLoading">
+  <mat-expansion-panel *ngFor="let question of questions">
+    <mat-expansion-panel-header >
+      {{ question.title }}
+    </mat-expansion-panel-header>
+    <p>{{'Correct Answer: ' + question.correct }}</p>
+    <p>{{'Answer 2: ' + question.answer2}} </p>
+    <p>{{'Answer 3: ' + question.answer3}} </p>
+    <p>{{'Answer 4: ' + question.answer4}} </p>
+    <mat-action-row *ngIf="userIsAuthenticated && userId === question.creator">
+      <a mat-button [routerLink]="['/edit',question.id]">EDIT</a>
+      <button mat-button color="warn" (click)="onDelete(question.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-paginator [length]="totalQuestions" [pageSize]="questionsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
+*ngIf="questions.length > 0"></mat-paginator>
+<button mat-raised-button *ngIf="userIsAuthenticated" color="primary" [routerLink]="['/question']">Select Question</button>
+<p class="info-text mat-body-1" *ngIf="questions.length <= 0 && !isLoading">No posts added yet!</p>

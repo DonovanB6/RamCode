@@ -1,22 +1,22 @@
 const express = require("express");
 
-const Post = require('../models/post');
+const Question = require('../models/Question');
 const checkAuth = require('../middleware/check-auth');
 
 const router = express.Router();
 
 router.get("", checkAuth, (req,res,next) => {
-  Post.count().exec(function (err, count) {
+  Question.count().exec(function (err, count) {
 
 
     var random = Math.floor(Math.random() * count)
 
 
-    Post.findOne().skip(random).then(post => {
-        if(post)
+    Question.findOne().skip(random).then(question => {
+        if(question)
         {
-        console.log(post);
-        return res.status(200).json(post);
+        console.log(question);
+        return res.status(200).json(question);
         }
         else {
           res.status(404).json({message: 'Post not found!'});

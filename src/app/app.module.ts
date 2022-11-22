@@ -12,11 +12,11 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import {MatRadioModule} from '@angular/material/radio';
 
-import { PostSelectComponent } from './posts/post-select/post-select.component';
+import { QuestionSelectComponent } from './Questions/Question-select/Question-select.component';
 import { AppComponent } from './app.component';
-import {PostCreateComponent } from './posts/post-create/post-create.component';
+import {QuestionCreateComponent } from './Questions/Question-create/Question-create.component';
 import { HeaderComponent } from './header/header.component';
-import { PostListComponent } from './posts/post-list/post-list.component';
+import { QuestionListComponent } from './Questions/Question-list/Question-list.component';
 import { AppRoutingModule } from './app.routing.module';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -26,12 +26,12 @@ import { AuthInterceptor } from './auth/auth-interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    PostCreateComponent,
+    QuestionCreateComponent,
     HeaderComponent,
-    PostListComponent,
+    QuestionListComponent,
     LoginComponent,
     SignupComponent,
-    PostSelectComponent
+    QuestionSelectComponent
   ],
   imports: [
     BrowserModule,

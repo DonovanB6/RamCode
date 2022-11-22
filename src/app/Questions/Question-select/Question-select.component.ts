@@ -1,18 +1,18 @@
 import { Component, OnInit } from "@angular/core";
-import { Post } from "../post.model";
+import { Question } from "../Question.model";
 
-import { PostsService } from "../posts.service";
+import { QuestionsService } from "../Questions.service";
 
 @Component({
-  selector: 'app-post-select',
-  templateUrl: './post-select.component.html',
-  styleUrls: ['post-select.component.css']
+  selector: 'app-question-select',
+  templateUrl: './Question-select.component.html',
+  styleUrls: ['Question-select.component.css']
 })
 
-export class PostSelectComponent implements OnInit{
+export class QuestionSelectComponent implements OnInit{
 
-  constructor(public postsService: PostsService) {}
-  post:Post;
+  constructor(public questionsService: QuestionsService) {}
+  question:Question;
   favoriteSeason: string;
   selectedAnswer: string;
   AnswerChecked = "";
@@ -21,18 +21,18 @@ export class PostSelectComponent implements OnInit{
   answersF: string[] = [];
   ngOnInit()
   {
-    this.postsService.getRandomPost().subscribe(postData => {
-      this.post = {id: postData._id, title: postData.title, content: postData.content, answer2: postData.answer2, answer3:postData.answer3, answer4:postData.answer4, creator: postData.creator};
+    this.questionsService.getRandomQuestion().subscribe(questionData => {
+      this.question = {id: questionData._id, title: questionData.title, correct: questionData.correct, answer2: questionData.answer2, answer3:questionData.answer3, answer4:questionData.answer4, creator: questionData.creator};
       //console.log(this.post);
-      this.randomizeAnswers(this.post);
+      this.randomizeAnswers(this.question);
     })
 
     // var choice1 = answers[Math.random() * answers.length];
   }
-  randomizeAnswers(post:Post)
+  randomizeAnswers(question:Question)
   {
     //console.log(post);
-    var answers = [post.content,post.answer2,post.answer3,post.answer4];
+    var answers = [question.correct,question.answer2,question.answer3,question.answer4];
    //console.log(answers);
     var answersRand = [];
 
@@ -52,7 +52,7 @@ export class PostSelectComponent implements OnInit{
   }
   checkAnswer(selectedAnswer)
   {
-    if(selectedAnswer==this.post.content)
+    if(selectedAnswer==this.question.correct)
     {
       this.AnswerChecked = "Correct!";
       this.rightAnswer = true;

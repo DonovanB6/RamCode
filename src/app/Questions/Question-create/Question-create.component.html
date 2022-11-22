@@ -1,6 +1,6 @@
 <mat-card>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
-  <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+  <form [formGroup]="form" (submit)="onSaveQuestion()" *ngIf="!isLoading">
   <mat-form-field>
     <input
     matInput
@@ -13,10 +13,10 @@
     <textarea
     matInput
     rows="1"
-    formControlName="content"
+    formControlName="correct"
     placeholder="Answer 1 (Correct Answer)">
   </textarea>
-  <mat-error *ngIf="form.get('content').invalid">Please enter the answer properly.</mat-error>
+  <mat-error *ngIf="form.get('correct').invalid">Please enter the answer properly.</mat-error>
   </mat-form-field>
   <mat-form-field>
     <textarea
