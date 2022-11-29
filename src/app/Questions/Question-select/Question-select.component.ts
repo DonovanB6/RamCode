@@ -13,11 +13,11 @@ export class QuestionSelectComponent implements OnInit{
 
   constructor(public questionsService: QuestionsService) {}
   question:Question;
-  favoriteSeason: string;
+
   selectedAnswer: string;
   AnswerChecked = "";
   rightAnswer = false;
-  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+
   answersF: string[] = [];
   ngOnInit()
   {
@@ -56,6 +56,8 @@ export class QuestionSelectComponent implements OnInit{
     {
       this.AnswerChecked = "Correct!";
       this.rightAnswer = true;
+      this.questionsService.sendQuestionId(this.question.id);
+
     }
     else
     {

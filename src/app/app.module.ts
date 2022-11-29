@@ -21,7 +21,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
-
+import { QuestionListStudent } from './Questions/Question-list-student/Question-list-student.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     QuestionListComponent,
     LoginComponent,
     SignupComponent,
-    QuestionSelectComponent
+    QuestionSelectComponent,
+    QuestionListStudent
   ],
   imports: [
     BrowserModule,

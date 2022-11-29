@@ -66,6 +66,7 @@ export class AuthService
       this.userId = response.userId;
       this.userRole = response.role;
       console.log(this.userRole);
+
       this.authStatusListener.next(true);
       const currentDate = new Date();
       const expirationDate = new Date(currentDate.getTime() + expiresInDuration * 1000);
@@ -104,6 +105,7 @@ export class AuthService
   this.isAuthenticated = false;
   this.authStatusListener.next(false);
   this.userId = null;
+  this.userRole = null;
   clearTimeout(this.tokenTimer);
   this.clearAuthData();
   this.router.navigate(['/']);

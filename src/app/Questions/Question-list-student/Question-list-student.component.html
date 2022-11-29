@@ -1,6 +1,7 @@
+<p> Previously Answered Questions:</p>
 <mat-spinner *ngIf="isLoading"></mat-spinner>
-<mat-accordion multi="True" *ngIf="questions.length > 0 && !isLoading">
-  <mat-expansion-panel *ngFor="let question of questions">
+<mat-accordion multi="True" *ngIf="uniqueQuestion.length > 0 && !isLoading">
+  <mat-expansion-panel *ngFor="let question of uniqueQuestion">
     <mat-expansion-panel-header >
       {{ question.title }}
     </mat-expansion-panel-header>
@@ -14,8 +15,6 @@
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
-<mat-paginator [length]="totalQuestions" [pageSize]="questionsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
-*ngIf="questions.length > 0"></mat-paginator>
-<button mat-raised-button *ngIf="userIsAuthenticated" color="primary" [routerLink]="['/question']">Select Question</button>
-<button mat-raised-button *ngIf="userIsAuthenticated" color="primary" id="pastQuestion"[routerLink]="['/question',userId]">See Past Questions</button>
-<p class="info-text mat-body-1" *ngIf="questions.length <= 0 && !isLoading">No posts added yet!</p>
+
+<button mat-raised-button *ngIf="userIsAuthenticated" color="primary" [routerLink]="['/']">Return Home</button>
+<p class="info-text mat-body-1" *ngIf="questions.length <= 0 && !isLoading">No Questions added yet!</p>

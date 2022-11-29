@@ -28,7 +28,7 @@ export class QuestionListComponent implements OnInit, OnDestroy {
    userId: string;
    private questionsSub: Subscription;
    private authStatusSub: Subscription;
-
+  userRole: string;
   constructor(public questionsService: QuestionsService, private authService: AuthService ) {}
 
   ngOnInit() {
@@ -45,6 +45,7 @@ export class QuestionListComponent implements OnInit, OnDestroy {
       this.userIsAuthenticated = isAuthenticated;
       this.userId = this.authService.getUserId();
     });
+   this.userRole = this.authService.getUserRole();
   }
 
   onChangedPage(pageData: PageEvent)
